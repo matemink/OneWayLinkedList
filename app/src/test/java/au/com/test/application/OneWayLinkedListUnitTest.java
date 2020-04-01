@@ -8,13 +8,16 @@ public class OneWayLinkedListUnitTest {
     @Test
     public void run() {
         OneWayLinkedList linkedlist = createAndPrepopulateLinkedList();
-        ArrayList<OneWayLinkedList> oneWayLinkedLists = linkedlist.split();
+        ArrayList<OneWayLinkedList> oneWayLinkedLists = create(linkedlist);
         OneWayLinkedList oneWayLinkedListWithEven = oneWayLinkedLists.get(0);
-        oneWayLinkedListWithEven.reverse();
         OneWayLinkedList oneWayLinkedListWithOdd = oneWayLinkedLists.get(1);
-        oneWayLinkedListWithOdd.reverse();
         System.out.println(oneWayLinkedListWithEven);
         System.out.println(oneWayLinkedListWithOdd);
+    }
+
+    private ArrayList<OneWayLinkedList> create(OneWayLinkedList linkedlist) {
+        linkedlist.reverse();
+        return linkedlist.split();
     }
 
     private static OneWayLinkedList createAndPrepopulateLinkedList() {

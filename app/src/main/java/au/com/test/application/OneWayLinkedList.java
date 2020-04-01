@@ -45,27 +45,26 @@ class OneWayLinkedList {
         Node previous = null;
         Node forward;
 
-        OneWayLinkedList linkedlist1 = new OneWayLinkedList();
-        OneWayLinkedList linkedlist2 = new OneWayLinkedList();
+        OneWayLinkedList oneWayLinkedListWithEven = new OneWayLinkedList();
+        OneWayLinkedList oneWayLinkedListWithOdd = new OneWayLinkedList();
 
         while (current.next != null) {
-            if (current.next.data % 2 == 0) {
-                linkedlist1.insert(current.next.data);
+            int data = current.next.data;
+            if (data % 2 == 0) {
+                oneWayLinkedListWithEven.insert(data);
             } else {
-                linkedlist2.insert(current.next.data);
+                oneWayLinkedListWithOdd.insert(data);
             }
             forward = current.next;
-
             current.next = previous;
             previous = current;
-
             current = forward;
         }
         head = current;
-        ArrayList<OneWayLinkedList> sdft = new ArrayList<>();
-        sdft.add(linkedlist1);
-        sdft.add(linkedlist2);
-        return sdft;
+        ArrayList<OneWayLinkedList> oneWayLinkedLists = new ArrayList<>();
+        oneWayLinkedLists.add(oneWayLinkedListWithEven);
+        oneWayLinkedLists.add(oneWayLinkedListWithOdd);
+        return oneWayLinkedLists;
     }
 
     private static class Node {
