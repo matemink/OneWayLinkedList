@@ -48,8 +48,8 @@ class OneWayLinkedList {
         OneWayLinkedList oneWayLinkedListWithEven = new OneWayLinkedList();
         OneWayLinkedList oneWayLinkedListWithOdd = new OneWayLinkedList();
 
-        while (current.next != null) {
-            int data = current.next.data;
+        while (current != null) {
+            int data = current.data;
             if (data % 2 == 0) {
                 oneWayLinkedListWithEven.insert(data);
             } else {
@@ -60,7 +60,6 @@ class OneWayLinkedList {
             previous = current;
             current = forward;
         }
-        head = current;
         ArrayList<OneWayLinkedList> oneWayLinkedLists = new ArrayList<>();
         oneWayLinkedLists.add(oneWayLinkedListWithEven);
         oneWayLinkedLists.add(oneWayLinkedListWithOdd);
