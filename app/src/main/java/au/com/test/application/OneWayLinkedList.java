@@ -30,10 +30,8 @@ class OneWayLinkedList {
 
         while (current.next != null) {
             forward = current.next;
-
             current.next = previous;
             previous = current;
-
             current = forward;
         }
         head = current;
@@ -42,9 +40,6 @@ class OneWayLinkedList {
 
     ArrayList<OneWayLinkedList> split() {
         Node current = head;
-        Node previous = null;
-        Node forward;
-
         OneWayLinkedList oneWayLinkedListWithEven = new OneWayLinkedList();
         OneWayLinkedList oneWayLinkedListWithOdd = new OneWayLinkedList();
 
@@ -55,10 +50,7 @@ class OneWayLinkedList {
             } else {
                 oneWayLinkedListWithOdd.insert(data);
             }
-            forward = current.next;
-            current.next = previous;
-            previous = current;
-            current = forward;
+            current = current.next;;
         }
         ArrayList<OneWayLinkedList> oneWayLinkedLists = new ArrayList<>();
         oneWayLinkedLists.add(oneWayLinkedListWithEven);
